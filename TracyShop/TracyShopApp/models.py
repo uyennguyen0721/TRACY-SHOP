@@ -1,7 +1,6 @@
 from datetime import datetime
-
 from sqlalchemy import Column, Integer, Float, String, \
-    Boolean, Enum, ForeignKey, DateTime, Text
+    Boolean, Enum, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from TracyShopApp import db
 from flask_login import UserMixin
@@ -42,8 +41,7 @@ class User(db.Model, UserMixin):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50), nullable=False)
-    address = Column(String(100), nullable=False)
-    phone = Column(String(100))
+    phone = Column(String(100), nullable=False)
     gender = Column(String(100))
     birthday = Column(DateTime)
     username = Column(String(50), nullable=False, unique=True)
@@ -53,7 +51,7 @@ class User(db.Model, UserMixin):
     joinedDate = Column(DateTime, default=datetime.today())
     userRole = Column(Enum(UserRole), default=UserRole.CUSTOMER)
 
-    addressId = Column(Integer, ForeignKey(Address.id), nullable=False)
+    addressId = Column(Integer, ForeignKey(Address.id), nullable=True)
     staffProfiles = db.relationship('Staff', uselist=False, back_populates="user")
     customerProfiles = db.relationship('Customer', uselist=False, back_populates="user")
 
@@ -73,12 +71,10 @@ class Customer(User):
 
 
 class PaymentMethod(SaleBase):
-
-    __tablename__ = "paymentmethod"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(100), nullable=False)
 
-    orders = relationship('Order', backref="paymentmethod", lazy=True)
+    orders = relationship('Order', backref="payment_method", lazy=True)
 
 
 class Order(db.Model):

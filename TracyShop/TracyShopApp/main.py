@@ -1,5 +1,6 @@
 from TracyShopApp import app
 from flask import render_template
+from TracyShopApp.admin import *
 
 
 @app.route("/")
