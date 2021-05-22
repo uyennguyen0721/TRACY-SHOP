@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    #chiều rộng của chế độ xem sẽ bằng chiều rộng thiết bị mà người dùng sử dụng để xem website.
+    #Tỷ lệ của website sẽ được đặt thành 100% ( hay chi tỷ lệ nội dung thành 1)
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+
+    #thêm google font cho trang web với kiểu chữ Nunito
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
+    <div class="content">
+        {% if err_msg %}
+        <div class="alert alert-danger">
+            {{ err_msg }}
+        </div>
+        {% endif %}
+        
+        <div class="login-content">
+            <img src="./static/images/logo.png" alt="OU" id="logo">
+
+            <form method="post" action="{{ url_for('login_user') }}">
+                <div class="form-group">
+                    <input type="text" name="username" id="username" placeholder="Tên đăng nhập"/>
+                    <div class="form-group" >
+                        <input type="password" name="password" id="password" placeholder="Mật khẩu"/>
+                    </div>
+                    <div class="form-group forgot-password">Quên mật khẩu?</div>
+
+                    <div class="form-group form-button">
+                        <input type="submit" name="login" id="login" class="form-submit" value="Đăng nhập"/>
+                    </div>
+                    <div class="form-group sugget-text">
+                        <div class="text">Bạn chưa có tài khoản?</div>
+                        <div class="link register-link">
+                            <a href="register.html">Đăng ký</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

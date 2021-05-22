@@ -3,7 +3,7 @@ import hashlib
 
 
 #Kiểm tra xem có phải là Manager không
-def checkManager(username, password, role=UserRole.MANAGER):
+def check_manager(username, password, role=UserRole.MANAGER):
     password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
     user = User.query.filter(User.username == username,
                              User.password == password,
@@ -12,7 +12,7 @@ def checkManager(username, password, role=UserRole.MANAGER):
 
 
 #Kiểm tra xem có phải là Staff không
-def checkStaff(username, password, role=UserRole.STAFF):
+def check_staff(username, password, role=UserRole.STAFF):
     password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
     user = User.query.filter(User.username == username,
                              User.password == password,
@@ -21,7 +21,7 @@ def checkStaff(username, password, role=UserRole.STAFF):
 
 
 #Kiểm tra xem có phải là Customer không
-def checkCustomer(username, password, role=UserRole.CUSTOMER):
+def check_customer(username, password, role=UserRole.CUSTOMER):
     password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
     user = User.query.filter(User.username == username,
                              User.password == password,
