@@ -40,14 +40,14 @@ def add_address(road, ward, district, city):
         return False
 
 
-#đăng ký tài khoản người dùng khách hàng
-def register_customer(name, phone, gender, birtday, username, password, avatar, active, user_role, road, ward, district, city):
+#đăng ký tài khoản người dùng
+def register_user(name, phone, gender, birthday, username, password, avatar, active, user_role, road, ward, district, city):
     address = add_address(road=road, ward=ward, district=district, city=city)
     password = str(hashlib.md5(password.trip().encode('utf-8')).hexdigest())
     user = User(name=name,
                 phone=phone,
                 gender=gender,
-                birtday=birtday,
+                birtday=birthday,
                 username=username,
                 password=password,
                 avatar=avatar,
@@ -60,6 +60,62 @@ def register_customer(name, phone, gender, birtday, username, password, avatar, 
         return True
     except:
         return False
+
+
+#tạo khách hàng kết nối đến user
+def create_customer(user_id):
+    customer = Customer(user_id)
+    try:
+        db.session.add(customer)
+        db.session.commit()
+        return True
+    except:
+        return False
+
+
+#tạo nhân viên kết nối đến user
+def create_staff(user_id):
+    staff = Staff(user_id)
+    try:
+        db.session.add(staff)
+        db.session.commit()
+        return True
+    except:
+        return False
+
+
+#kiểm tra username có trùng hay không
+def check_username(username):
+    user = User.query.all()
+    for u in user:
+        if u.username == username:
+            return True
+        return False
+
+
+#lấy id của người dùng
+def get_id_user(username=None):
+    user = User.query.all()
+    for u in user:
+        if u.username == username:
+            return u.id
+
+
+#tạo đơn hàng mới
+def create_order(customer_id, address, is_pay, staff_id):
+    order = Order(date=datetime.today(),
+                  isCensorship=False,
+                  isPay=is_pay,
+                  paymentMenthodId=1,
+                  staffId=staff_id,
+                  totalBill=0)
+    try:
+        db.session.add(order)
+        db.session.commit()
+        return True
+    except:
+        return False
+
 
 
 
