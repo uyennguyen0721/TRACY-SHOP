@@ -101,6 +101,11 @@ def get_id_user(username=None):
             return u.id
 
 
+#Lấy tài khoản người dùng bằng id
+def get_user_by_id(user_id):
+    return User.query.get(user_id)
+
+
 #tạo đơn hàng mới
 def create_order(customer_id, address, is_pay, staff_id):
     order = Order(date=datetime.today(),

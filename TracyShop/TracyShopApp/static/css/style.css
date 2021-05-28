@@ -1,0 +1,85 @@
+/*head*/
+.header{
+	background-color:#282828;
+	display: flex;
+	text-align: center;
+	height: 70px;
+	position:fixed;
+	top:0;
+	left: 8px;
+	right: 8px;
+	z-index: 10;
+	margin: 0;
+}
+
+div.nav__logo{
+    width: 20%;
+	margin:0;
+}
+
+div.nav__hamburger{
+    width: 20%;
+	margin:0;
+}
+
+div.nav__logo > img{
+    width: 50%;
+}
+
+div.nav__menu{
+    width: 80%;
+}
+
+div.nav__menu > ul{
+    list-style-type:none;
+	margin:0;
+	padding:0;
+	display:flex;
+}
+
+ul.nav__left{
+    float: left;
+}
+
+ul.nav__right{
+    float: right;
+}
+
+.nav__menu > ul > li > a{
+    display: block;
+	text-decoration:none;
+	color:#FFF;
+	font-size: 17px;
+	padding:25px 25px;
+	text-transform: uppercase;
+}
+
+.nav__menu > ul > li > a:hover{
+    border-bottom: 1px solid #FFF;
+	transition: .5s ease;
+	padding-bottom: 5px;
+}
+
+#myDropdown{
+    position:absolute;
+	margin-top:70px;
+	right: 8%;
+	padding:0;
+	width: 20%;
+	display: none;
+}
+
+input{
+	width: 100%;
+	height: 36px;
+	border-radius: 30px;
+	border: 1px solid transparent;;
+	outline: 0;
+	padding: 5px 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.show {
+	display: block;
+}
+

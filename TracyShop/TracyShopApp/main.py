@@ -1,4 +1,4 @@
-from TracyShopApp import app
+from TracyShopApp import app, login
 from flask import render_template
 from TracyShopApp.admin import *
 
@@ -9,6 +9,11 @@ def index():
 
 
 #đăng nhập
+@login.user_loader
+def get_user(user_id):
+    return utils.get_user_by_id(user_id=user_id)
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login_user():
     err_msg = ""
