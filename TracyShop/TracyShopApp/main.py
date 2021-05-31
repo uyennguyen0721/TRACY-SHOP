@@ -1,5 +1,5 @@
 from TracyShopApp import app, login
-from flask import render_template
+from flask import render_template, url_for
 from TracyShopApp.admin import *
 
 
@@ -37,6 +37,47 @@ def login_user():
             err_msg = "Username or password incorrect"
 
     return render_template('login.html', err_msg=err_msg)
+
+
+#đăng ký
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    err_msg = ""
+    if request.method == 'POST':
+        password = request.form.get('password')
+        confirm = request.form.get('confirm-password')
+        if password == confirm:
+            name = request.form.get('name')
+            phone = request.form.get('phone')
+            username = request.form.get('username')
+            birthday = request.form.get('birthday')
+            gender = request.form.get('gender')
+            avatar_path = 'static/images/default-avatar.png'
+            if utils.kiemTraUserName(username):
+                err_msg = "Tên đăng nhập đã được sử dụng"
+            elif utils.register_user(name=name, phone=phone, gender=gender, birthday=birthday, username=username,
+                                     password=password, avatar=avatar_path, active=1, user_role=UserRole.CUSTOMER,
+                                     road="371 Nguyễn Kiệm", ward="phường 7", district="quận Gò Vấp", city="Hồ Chí Minh"):
+                user = utils.get_id_user(username)
+                utils.check_customer(user)
+                err_msg = "Tạo tài khoản thành công"
+        else:
+            err_msg = "Mật khẩu không khớp vui lòng thử lại"
+
+    return render_template('register.html', err_msg=err_msg)
+
+
+#đăng xuất
+@app.route('/logout')
+def logout_usr():
+    logout_user()
+    return redirect(url_for('index'))
+
+
+#trang Về Tracy Shop
+@app.route("/about-us")
+def about_us():
+    return render_template("about-us.html")
 
 
 if __name__ == "__main__":

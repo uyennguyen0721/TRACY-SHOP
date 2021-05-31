@@ -6,17 +6,13 @@
     <title>TRACY SHOP</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ url_for('static', filename='fontawesome-free-5.15.1-web/css/all.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="nav__hamburger">
-                <a href="javascript:void(0);" id="myLinks" onclick="myFunction()">
-                    <i class="fas fa-bars"></i>
-                </a>
-            </div>
+
             <div class="nav__logo">
                 <img src="./static/images/logo.png" alt="OU" id="logo">
             </div>
@@ -26,7 +22,7 @@
                         <a href="{{url_for('index')}}" class="nav__link ">Trang chủ</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#" class="nav__link">Về Tracy Shop</a>
+                        <a href="url_for('about_us')" class="nav__link">Về Tracy Shop</a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">Sản phẩm</a>
@@ -54,13 +50,13 @@
 
                     {% if current_user.is_authenticated and current_user.user_role == userrole.CUSTOMER %}
                     <li class="nav__item">
-                        <a href="#" class="icon__logout">
+                        <a href="{{ url_for('logout_usr')}}" class="icon__logout">
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
                     </li>
                     {% else %}
                     <li class="nav__item">
-                        <a href="#" class="nav__link">Đăng nhập</a>
+                        <a href="{{ url_for('login_user')}}" class="nav__link">Đăng nhập</a>
                     </li>
                     {% endif %}
 

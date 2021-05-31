@@ -1,6 +1,6 @@
 /*head*/
 .header{
-	background-color:#282828;
+	background-color: #FFFFFF;
 	display: flex;
 	text-align: center;
 	height: 70px;
@@ -23,7 +23,7 @@ div.nav__hamburger{
 }
 
 div.nav__logo > img{
-    width: 50%;
+    width: 70%;
 }
 
 div.nav__menu{
@@ -48,7 +48,7 @@ ul.nav__right{
 .nav__menu > ul > li > a{
     display: block;
 	text-decoration:none;
-	color:#FFF;
+	color:#000000;
 	font-size: 17px;
 	padding:25px 25px;
 	text-transform: uppercase;

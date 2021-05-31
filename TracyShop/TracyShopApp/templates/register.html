@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, follow">
+	<link href="{{ url_for('static', filename='fontawesome-free-5.15.1-web/css/all.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <div class="content">
+        {% if err_msg %}
+        <div class="alert alert-danger">
+            {{ err_msg }}
+        </div>
+        {% endif %}
+
+        <div class="register-content">
+			<div class="register-form">
+				<img src="./static/images/logo.png" alt="OU" id="logo"/>
+				<form method="post" action="{{ url_for('register') }}">
+					<div class="form-group" >
+						<input type="text" name="name" id="name" placeholder="Họ và tên"/>
+					</div>
+					<div class="form-group" >
+						<select name="gender" id="gender">
+							<option>Giới tính</option>
+							<option>Nam</option>
+							<option>Nữ</option>
+							<option>Khác</option>
+						</select>
+					</div>
+					<div class="form-group" >
+						<input type="phone" name="phone" id="phone" placeholder="Số điện thoại"/>
+					</div>
+					<div class="form-group date-picker" >
+						<div class="input">
+							<div class="result">Ngày sinh <span></span></div>
+							<button><i class="fas fa-calendar-alt"></i>"></i></button>
+						</div>
+						<div class="calendar"></div>
+					</div>
+					<div class="form-group" >
+						<input type="username" name="username" id="username" placeholder="Tên đăng nhập"/>
+					</div>
+					<div class="form-group" >
+						<input type="password" name="password" id="password" placeholder="Mật khẩu mới"/>
+					</div>
+					<div class="form-group" >
+						<input type="password" name="confirm-password" id="confirm-password" placeholder="Nhập lại mật khẩu"/>
+					</div>
+
+					<div class="form-group form-button">
+						<input type="submit" name="register" id="register" class="form-submit" value="Đăng ký"/>
+					</div>
+					<div class="form-group sugget-text">
+						<div class="text">Bạn đã có tài khoản?</div>
+						<div class="link register-link">
+							<a href="login.html">Đăng nhập</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+    </div>
+</body>
+</html>
