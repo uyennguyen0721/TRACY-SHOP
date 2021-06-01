@@ -26,21 +26,16 @@
 					</div>
 					<div class="form-group" >
 						<select name="gender" id="gender">
-							<option>Giới tính</option>
 							<option>Nam</option>
 							<option>Nữ</option>
 							<option>Khác</option>
 						</select>
 					</div>
 					<div class="form-group" >
-						<input type="phone" name="phone" id="phone" placeholder="Số điện thoại"/>
+						<input type="tel" name="phone" id="phone" placeholder="Số điện thoại"/>
 					</div>
-					<div class="form-group date-picker" >
-						<div class="input">
-							<div class="result">Ngày sinh <span></span></div>
-							<button><i class="fas fa-calendar-alt"></i>"></i></button>
-						</div>
-						<div class="calendar"></div>
+					<div class="form-group" >
+						<input type="date" name="birthday" id="birthday"/>
 					</div>
 					<div class="form-group" >
 						<input type="username" name="username" id="username" placeholder="Tên đăng nhập"/>
@@ -58,7 +53,7 @@
 					<div class="form-group sugget-text">
 						<div class="text">Bạn đã có tài khoản?</div>
 						<div class="link register-link">
-							<a href="login.html">Đăng nhập</a>
+							<a href="{{ url_for('login_user') }}">Đăng nhập</a>
 						</div>
 					</div>
 				</form>

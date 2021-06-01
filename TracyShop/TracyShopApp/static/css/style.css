@@ -10,6 +10,7 @@
 	right: 8px;
 	z-index: 10;
 	margin: 0;
+	text-transform: uppercase;
 }
 
 div.nav__logo{

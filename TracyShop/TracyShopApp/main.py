@@ -53,7 +53,7 @@ def register():
             birthday = request.form.get('birthday')
             gender = request.form.get('gender')
             avatar_path = 'static/images/default-avatar.png'
-            if utils.kiemTraUserName(username):
+            if utils.check_username(username):
                 err_msg = "Tên đăng nhập đã được sử dụng"
             elif utils.register_user(name=name, phone=phone, gender=gender, birthday=birthday, username=username,
                                      password=password, avatar=avatar_path, active=1, user_role=UserRole.CUSTOMER,
