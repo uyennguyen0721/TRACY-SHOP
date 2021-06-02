@@ -86,7 +86,7 @@ def create_staff(user_id):
 
 #kiểm tra username có trùng hay không
 def check_username(username):
-    user = User.query.all()
+    user = User.query.all() # cái câu query này bn viết đúng chưa ak, hya là db.query ? đúng r í
     for u in user:
         if u.username == username:
             return True

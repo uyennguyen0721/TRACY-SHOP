@@ -8,7 +8,7 @@ function myFunction() {
   }
 }
 
-function show()
+function hien()
 	{
 		   document.getElementById("myDropdown").classList.toggle("show");
 	}

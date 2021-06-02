@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TRACY SHOP</title>
+    <title>Tracy Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ url_for('static', filename='fontawesome-free-5.15.1-web/css/all.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <script type="text/javascript" src="./static/js/register.js"></script>
+    <link rel="shortcut icon" type="image/png" href="/static/images/logo-short.png"/>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-
+    <div>
+        <div class="header">
             <div class="nav__logo">
                 <img src="./static/images/logo.png" alt="OU" id="logo">
             </div>
@@ -28,7 +28,7 @@
                         <a href="#" class="nav__link">Sản phẩm</a>
                     </li>
 
-                    {% if current_user.is_authenticated and current_user.user_role == userrole.CUSTOMER %}
+                    {% if current_user.is_authenticated and current_user.user_role == userRole.CUSTOMER %}
                     <span style="margin:0">Hi!</span>
                     <li class="nav__item">
                         <a href="#" class="nav__link " >{{current_user.name}}</a>
@@ -38,7 +38,7 @@
                 </ul>
                 <ul class="nav__right">
                     <li class="nav__item">
-                        <a href="#" class="icon__search" onClick="show()">
+                        <a href="#" class="icon__search" onClick="hien()">
                             <i class="fas fa-search"></i>
                         </a>
                     </li>
@@ -48,7 +48,7 @@
                         </a>
                     </li>
 
-                    {% if current_user.is_authenticated and current_user.user_role == userrole.CUSTOMER %}
+                    {% if current_user.is_authenticated and current_user.user_role == UserRole.CUSTOMER %}
                     <li class="nav__item">
                         <a href="{{ url_for('logout_usr')}}" class="icon__logout">
                             <i class="fas fa-sign-out-alt"></i>
@@ -59,11 +59,10 @@
                         <a href="{{ url_for('login_user')}}" class="nav__link">Đăng nhập</a>
                     </li>
                     {% endif %}
-
-                    <div id="myDropdown" class="nav__item"><input type="text"  placeholder="Bạn đang tìm gì...?"></div>
                 </ul>
+                <div id="myDropdown" class="nav__item"><input type="text"  placeholder="Bạn đang tìm gì...?"></div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
 </body>
 </html>

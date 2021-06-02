@@ -3,6 +3,7 @@ from flask import render_template, url_for
 from TracyShopApp.admin import *
 
 
+#trang chủ
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -34,7 +35,7 @@ def login_user():
             login_user(user=staff)
             return redirect("/admin")
         else:
-            err_msg = "Username or password incorrect"
+            err_msg = "Tên đăng nhập hoặc mật khẩu chưa đúng"
 
     return render_template('login.html', err_msg=err_msg)
 
@@ -56,7 +57,7 @@ def register():
             if utils.check_username(username):
                 err_msg = "Tên đăng nhập đã được sử dụng"
             elif utils.register_user(name=name, phone=phone, gender=gender, birthday=birthday, username=username,
-                                     password=password, avatar=avatar_path, active=1, user_role=UserRole.CUSTOMER,
+                                     password=password, avatar=avatar_path, active=1, user_role=utils.UserRole.CUSTOMER,
                                      road="371 Nguyễn Kiệm", ward="phường 7", district="quận Gò Vấp", city="Hồ Chí Minh"):
                 user = utils.get_id_user(username)
                 utils.check_customer(user)
@@ -75,9 +76,9 @@ def logout_usr():
 
 
 #trang Về Tracy Shop
-@app.route("/about-us")
+@app.route('/about-us')
 def about_us():
-    return render_template("about-us.html")
+    return render_template('about-us.html')
 
 
 if __name__ == "__main__":

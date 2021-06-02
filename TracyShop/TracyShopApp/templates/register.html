@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="robots" content="noindex, follow">
 	<link href="{{ url_for('static', filename='fontawesome-free-5.15.1-web/css/all.css') }}" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="/static/images/logo-short.png"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
     <title>Đăng ký</title>
 </head>
@@ -22,7 +23,7 @@
 				<img src="./static/images/logo.png" alt="OU" id="logo"/>
 				<form method="post" action="{{ url_for('register') }}">
 					<div class="form-group" >
-						<input type="text" name="name" id="name" placeholder="Họ và tên"/>
+						<input type="text" name="name" id="name" placeholder="Họ và tên" required/>
 					</div>
 					<div class="form-group" >
 						<select name="gender" id="gender">
@@ -32,23 +33,23 @@
 						</select>
 					</div>
 					<div class="form-group" >
-						<input type="tel" name="phone" id="phone" placeholder="Số điện thoại"/>
+						<input type="tel" name="phone" id="phone" placeholder="Số điện thoại" required/>
 					</div>
 					<div class="form-group" >
-						<input type="date" name="birthday" id="birthday"/>
+						<input type="date" name="birthday" id="birthday" required/>
 					</div>
 					<div class="form-group" >
-						<input type="username" name="username" id="username" placeholder="Tên đăng nhập"/>
+						<input type="username" name="username" id="username" placeholder="Tên đăng nhập" required/>
 					</div>
 					<div class="form-group" >
-						<input type="password" name="password" id="password" placeholder="Mật khẩu mới"/>
+						<input type="password" name="password" id="password" placeholder="Mật khẩu mới" required/>
 					</div>
 					<div class="form-group" >
-						<input type="password" name="confirm-password" id="confirm-password" placeholder="Nhập lại mật khẩu"/>
+						<input type="password" name="confirm-password" id="confirm-password" placeholder="Nhập lại mật khẩu" required/>
 					</div>
 
 					<div class="form-group form-button">
-						<input type="submit" name="register" id="register" class="form-submit" value="Đăng ký"/>
+						<input type="submit" name="register" id="register" class="form-submit" value="Đăng ký" required/>
 					</div>
 					<div class="form-group sugget-text">
 						<div class="text">Bạn đã có tài khoản?</div>

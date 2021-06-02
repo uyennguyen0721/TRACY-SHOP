@@ -1,5 +1,9 @@
+body{
+    font-family: Muli, sans-serif;
+}
+
 /*head*/
-.header{
+div.header{
 	background-color: #FFFFFF;
 	display: flex;
 	text-align: center;
@@ -10,7 +14,6 @@
 	right: 8px;
 	z-index: 10;
 	margin: 0;
-	text-transform: uppercase;
 }
 
 div.nav__logo{
@@ -18,13 +21,9 @@ div.nav__logo{
 	margin:0;
 }
 
-div.nav__hamburger{
-    width: 20%;
-	margin:0;
-}
 
 div.nav__logo > img{
-    width: 70%;
+    width: 60%;
 }
 
 div.nav__menu{
@@ -52,11 +51,12 @@ ul.nav__right{
 	color:#000000;
 	font-size: 17px;
 	padding:25px 25px;
+	font-weight: bold;
 	text-transform: uppercase;
 }
 
 .nav__menu > ul > li > a:hover{
-    border-bottom: 1px solid #FFF;
+    border-bottom: 1px solid #000000;
 	transition: .5s ease;
 	padding-bottom: 5px;
 }
